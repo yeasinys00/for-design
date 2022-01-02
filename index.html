@@ -6,35 +6,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .divition{
-            background-color: rgb(71, 71, 126);
+        .{
+            box-sizing: border-box;
         }
-        div{
-            height: 100px;
-            width: 100px;
+        .animation{
+            background-color: crimson;
+            width: 500px;
+            padding: 20px;
         }
-        #first{
-            background-color: brown;
+        .animation li{
+            list-style-type: none;
+            margin: 50px 0px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            position: relative;
         }
-        #second{
-            background-color: chartreuse;
+        .animation li::before{
+            content: ' ';
             position: absolute;
-            left: 100px;
+            top: calc(100% + 5px);
+            left: 0px;
+            background-color: cyan;
+            border-radius: 1000px;
+            width: 100%;
+            height: 50px;
         }
-        #third{
+        .animation li::after{
+            content: ' ';
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 0px;
+            background-color: rgb(6, 65, 65);
+            border-radius: 1000px;
+            width: 0px;
+            height: 50px;
+
+
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-delay: 1s;
+            animation-iteration-count: 4;
+            animation-direction: forward;
+        }
+        .animation li.amar::after{
+            animation-name: amar;
+        }
+        @keyframes amar{
+            to{
+                width: 50%;
+            }
+        }
+        .animation li.sonar::after{
+            animation-name: sonar;
+            background-color: chartreuse;
+        }
+        @keyframes sonar{
+            to{
+                width: 50%;
+            }
+        }
+        .animation li.bangla::after{
+            animation-name: bangla;
             background-color: chocolate;
         }
-        
+        @keyframes bangla{
+            to{
+                width: 100%;
+            }
+        }
+        .animation li.ami::after{
+            animation-name: ami;
+            border-color: darkgreen;
+        }
+        @keyframes ami{
+            to{
+                width: 75%;
+            }
+        }
+        .animation li.tomay::after{
+            animation-name: tomay;
+            border-color: blue
+        }
+        @keyframes tomay{
+            to{
+                width: 80%;
+            }
+        }
+
+
     </style>
 </head>
 <body>
-    <section>
-        <h1>learning and climbing position</h1>
-    </section>
-    <section class="divition">
-        <div id="first"></div>
-        <div id="second"></div>
-        <div id="third"></div>
-    </section>
+    <div class="animation">
+        <ul>
+            <li class="amar">amar</li>
+            <li class="sonar">sonar</li>
+            <li class="bangla">bangla</li>
+            <li class="ami">ami</li>
+            <li class="tomay">tomay</li>
+        </ul>
+    </div>
 </body>
 </html>
